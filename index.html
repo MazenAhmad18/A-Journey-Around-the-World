@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رحلة طارق حول العالم | كيف يصبح العالم أجمل؟</title>
+<style>
+:root{--purple:#6548b8;--purple-dark:#49318d;--pink:#e56d9b;--teal:#4aa69e;--gold:#e6b84f;--ink:#29243a;--muted:#6f6980;--paper:#fffdf8;--line:#e9e3f4;--green:#21865c;--red:#b84b55}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#f6f1ff,#fff8ee 60%,#edf9f7);font-family:Tahoma,Arial,sans-serif;color:var(--ink);line-height:1.7}
+button,input{font:inherit}button{cursor:pointer;border:0}
+.wrap{max-width:1080px;margin:auto;padding:22px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:52px;height:52px;border-radius:17px;background:var(--purple);color:white;display:grid;place-items:center;font-size:27px;box-shadow:0 7px 0 #d7c9f4}
+.brand h1{font-size:clamp(19px,3vw,27px);margin:0}.brand p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.pill{background:white;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:bold;font-size:14px}
+.hero{background:linear-gradient(115deg,#6247b3,#8565d1);border-radius:28px;padding:clamp(22px,4vw,42px);color:#fff;display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:center;box-shadow:0 12px 0 #e4dafa;margin-bottom:22px;overflow:hidden}
+.hero h2{font-size:clamp(27px,4vw,42px);line-height:1.35;margin:8px 0}.hero p{margin:8px 0 18px;color:#f2edff}.hero-art{font-size:clamp(85px,13vw,150px);text-align:center;filter:drop-shadow(0 8px 0 #4b328c)}
+.btn{border-radius:13px;padding:12px 18px;font-weight:bold;transition:transform .15s,filter .15s}.btn:hover{filter:brightness(1.04);transform:translateY(-1px)}.primary{background:var(--gold);color:#33254e}.secondary{background:#f0ebff;color:var(--purple-dark);border:1px solid #d7caf6}.whitebtn{background:white;color:var(--purple-dark)}
+.layout{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}.panel{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 5px 0 rgba(91,67,147,.08);margin-bottom:18px}
+.panel h3{margin:0 0 12px;font-size:20px}.muted{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:16px}.stat{background:#f8f5ff;border-radius:15px;padding:12px;text-align:center}.stat strong{display:block;font-size:24px;color:var(--purple)}.stat span{font-size:12px;color:var(--muted)}
+.progress{height:9px;background:#eee8fa;border-radius:99px;overflow:hidden;margin:12px 0}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--purple));transition:width .3s}
+.levels{display:grid;gap:10px}.level{display:flex;align-items:center;gap:12px;padding:13px;border:1px solid var(--line);border-radius:16px;background:white;text-align:right;width:100%;color:var(--ink)}.level.active{border:2px solid var(--purple);background:#f8f4ff}.level.locked{opacity:.55;cursor:not-allowed}.level .medal{font-size:27px}.level strong{display:block}.level small{color:var(--muted)}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.badge{border:1px dashed #d8d0e7;border-radius:15px;text-align:center;padding:12px 4px;background:#fcfbff;opacity:.48;filter:grayscale(1)}.badge.earned{opacity:1;filter:none;border-style:solid;background:#fff9e7}.badge span{font-size:30px;display:block}.badge strong{font-size:12px;display:block}
+.game-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.tag{display:inline-block;background:#f0eaff;color:var(--purple-dark);padding:5px 11px;border-radius:999px;font-size:12px;font-weight:bold}.question{font-size:22px;font-weight:bold;margin:18px 0}.choices{display:grid;gap:10px}.choice{background:#fff;border:2px solid #e9e2f5;border-radius:14px;padding:13px 15px;text-align:right;color:var(--ink);width:100%;display:flex;gap:10px;align-items:center}.choice:hover{border-color:#b5a2e5;background:#fcfaff}.choice.selected{border-color:var(--purple);background:#f3eeff}.choice.correct{border-color:var(--green);background:#edfaf3}.choice.wrong{border-color:var(--red);background:#fff0f0}.letter{display:grid;place-items:center;min-width:31px;height:31px;border-radius:10px;background:#f0eaff;color:var(--purple-dark);font-weight:bold}
+.feedback{display:none;margin-top:15px;padding:14px;border-radius:14px;font-weight:bold}.feedback.show{display:block}.feedback.good{background:#eaf8f0;color:#176943;border:1px solid #bfe8d0}.feedback.try{background:#fff2f0;color:#9d3944;border:1px solid #f1c7c7}.feedback .explain{font-weight:normal;display:block;margin-top:5px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.actions .btn{flex:1;min-width:130px}
+.open-answer{width:100%;min-height:120px;border:2px solid #e9e2f5;border-radius:14px;padding:14px;resize:vertical;background:#fff;color:var(--ink)}.open-answer:focus{outline:3px solid #e5dcfb;border-color:var(--purple)}
+.hidden{display:none!important}.welcome{text-align:center;padding:18px 4px}.welcome .big{font-size:62px}.welcome h3{font-size:25px}.certificate{border:5px double #d4ad48;border-radius:20px;padding:25px;text-align:center;background:#fffdf3}.certificate .seal{font-size:65px}.certificate h2{color:var(--purple-dark)}
+.footer{text-align:center;color:var(--muted);font-size:12px;padding:10px}
+.toast{font-size:13px;color:var(--green);min-height:22px;margin-top:6px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.hero-art{grid-row:1}.hero-art{font-size:85px}.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:420px){.wrap{padding:12px}.panel{padding:16px}.hero{padding:20px}.badges{gap:5px}.badge{padding:8px 2px}.badge span{font-size:25px}.question{font-size:19px}}
+@media print {
+  @page { size: A4 portrait; margin: 12mm; }
+  body { background: #fff !important; margin: 0 !important; color: #29243a !important; }
+  body * { visibility: hidden !important; }
+  #finishView, #finishView * { visibility: visible !important; }
+  #finishView { display: block !important; position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+  #finishView .certificate { display: block !important; width: 100% !important; min-height: 245mm !important; padding: 24mm 14mm !important; border: 6px double #d4ad48 !important; border-radius: 8mm !important; background: #fffdf3 !important; box-shadow: none !important; page-break-inside: avoid !important; }
+  #finishView .certificate .seal { font-size: 72pt !important; margin-bottom: 10mm !important; }
+  #finishView .certificate h2 { font-size: 27pt !important; margin: 8mm 0 !important; }
+  #finishView .certificate p, #finishView .certificate strong { font-size: 15pt !important; line-height: 1.9 !important; }
+  #finishView .print-hide { display: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><div class="logo">🌍</div><div><h1>رحلة طارق حول العالم</h1><p>اكتشف سر جمال التنوع!</p></div></div>
+    <div class="pill">📚 اللغة العربية • الصف الخامس الابتدائي</div>
+  </header>
+
+  <section class="panel" id="profilePanel">
+    <h3>🧑‍🎓 بيانات المستكشف</h3>
+    <p class="muted" style="margin-top:-6px">اكتب بياناتك عشان تظهر باسمك وبالصيغة المناسبة في شهادة نهاية الرحلة.</p>
+    <form id="profileForm">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+        <label>الاسم الكامل
+          <input id="studentName" name="studentName" required maxlength="70" autocomplete="name" placeholder="اكتب اسمك هنا" style="display:block;width:100%;margin-top:6px;border:2px solid #e9e2f5;border-radius:12px;padding:12px;background:white;color:var(--ink)">
+        </label>
+        <label>الفصل
+          <input id="studentClass" name="studentClass" required maxlength="40" placeholder="مثال: ٥ / أ" style="display:block;width:100%;margin-top:6px;border:2px solid #e9e2f5;border-radius:12px;padding:12px;background:white;color:var(--ink)">
+        </label>
+        <label>النوع
+          <select id="studentGender" name="studentGender" required style="display:block;width:100%;margin-top:6px;border:2px solid #e9e2f5;border-radius:12px;padding:12px;background:white;color:var(--ink)">
+            <option value="">اختر النوع</option>
+            <option value="male">ذكر</option>
+            <option value="female">أنثى</option>
+          </select>
+        </label>
+      </div>
+      <div class="actions"><button class="btn primary" type="submit">حفظ البيانات وابدأ الرحلة 🚀</button><span class="muted" id="profileStatus" aria-live="polite"></span></div>
+    </form>
+  </section>
+
+  <section class="hero">
+    <div>
+      <span class="tag" style="background:#ffffff25;color:white">مغامرة تعليمية تفاعلية</span>
+      <h2>كيف يصبح العالم أجمل؟</h2>
+      <p>انطلق مع طارق بين الأجنحة الإفريقية والآسيوية والعربية، واجمع النقاط وافتح الشارات حتى تصبح سفير التنوع!</p>
+      <button class="btn primary" id="startBtn">🚀 ابدأ الرحلة</button>
+      <button class="btn whitebtn" id="resetBtn">بدء من جديد</button>
+    </div>
+    <div class="hero-art" aria-hidden="true">🧭🌏</div>
+  </section>
+
+  <div class="layout">
+    <main>
+      <section class="panel" id="gamePanel">
+        <div class="welcome" id="welcome">
+          <div class="big">🎒</div><h3>مستعد للمغامرة يا بطل؟</h3>
+          <p class="muted">جاوب عن الأسئلة، وتعلّم من المحاولة، واجمع الشارات. تقدمك يُحفظ تلقائيًا على هذا الجهاز.</p>
+          <button class="btn primary" id="welcomeStart">ابدأ أول تحدٍ</button>
+        </div>
+        <div id="questionArea" class="hidden">
+          <div class="game-head"><span class="tag" id="levelTag">المستوى الأول</span><span class="muted" id="questionCount">السؤال 1</span></div>
+          <div class="progress"><div id="questionProgress"></div></div>
+          <div class="question" id="questionText"></div>
+          <div id="choiceArea" class="choices"></div>
+          <textarea id="openAnswer" class="open-answer hidden" placeholder="اكتب إجابتك هنا..."></textarea>
+          <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+          <div class="actions">
+            <button class="btn primary" id="checkBtn">تأكيد الإجابة</button>
+            <button class="btn secondary hidden" id="nextBtn">السؤال التالي ←</button>
+          </div>
+        </div>
+        <div id="levelComplete" class="hidden">
+          <div class="welcome"><div class="big" id="completeEmoji">🏅</div><h3 id="completeTitle">أحسنت!</h3><p id="completeText"></p><div class="certificate" id="miniAward"></div><div class="actions"><button class="btn primary" id="continueBtn">تابع الرحلة</button></div></div>
+        </div>
+        <div id="finishView" class="hidden">
+          <div class="certificate"><div class="seal">🏆🌟</div><h2 id="certificateTitle">شهادة سفير التنوع</h2><p id="certificateIntro">تُمنح هذه الشهادة للبطل</p><h2 id="studentNameDisplay">مستكشف العالم</h2><p id="studentClassDisplay"></p><p id="certificateBody">تقديرًا لإتمام رحلة «كيف يصبح العالم أجمل؟» وإظهار فهمه لأهمية احترام الثقافات والتنوع.</p><p id="finalScoreText"></p><strong>🌍 معًا نجعل العالم أجمل!</strong></div>
+          <div class="actions print-hide"><button class="btn primary" id="printBtn">🖨️ اطبع الشهادة</button><button class="btn secondary" id="againBtn">إعادة الرحلة</button></div>
+        </div>
+      </section>
+      <section class="panel">
+        <h3>🗺️ خريطة الرحلة</h3>
+        <p class="muted">تدرّج في التحديات: صح أو خطأ، ثم اختيار من متعدد، ثم سؤال تفكيري مفتوح. تحتاج إلى 80% على الأقل من نقاط المستوى لفتح المستوى التالي.</p>
+        <div class="progress"><div id="overallProgress"></div></div><div class="muted" id="overallText">لم تبدأ الرحلة بعد</div>
+      </section>
+    </main>
+
+    <aside>
+      <section class="panel">
+        <h3>⭐ إنجازاتك</h3>
+        <div class="stats">
+          <div class="stat"><strong id="score">0</strong><span>النقاط</span></div>
+          <div class="stat"><strong id="correctCount">0</strong><span>إجابات صحيحة</span></div>
+          <div class="stat"><strong id="streak">0</strong><span>إجابات متتالية</span></div>
+        </div>
+        <div class="toast" id="saveStatus">💾 الحفظ التلقائي جاهز</div>
+      </section>
+      <section class="panel">
+        <h3>🏅 مجموعة الشارات</h3>
+        <div class="badges">
+          <div class="badge" id="badge1"><span>🥉</span><strong>مستكشف صغير</strong><small>برونزية</small></div>
+          <div class="badge" id="badge2"><span>🥈</span><strong>رحالة الثقافات</strong><small>فضية</small></div>
+          <div class="badge" id="badge3"><span>🥇</span><strong>سفير التنوع</strong><small>ذهبية</small></div>
+        </div>
+        <p class="muted" style="font-size:13px;margin-bottom:0">كل شارة تُفتح عند اجتياز مستواها بنسبة 80% على الأقل.</p>
+      </section>
+      <section class="panel">
+        <h3>💡 تذكّر</h3>
+        <p style="margin:0">كل ثقافة لها عاداتها وتقاليدها، واحترام الاختلاف يجعل العالم لوحة جميلة ومتنوعة.</p>
+      </section>
+    </aside>
+  </div>
+  <footer class="footer">صُمّم للتعلّم بالمحاولة والتشجيع • تقدمك محفوظ محليًا على هذا الجهاز</footer>
+</div>
+
+<script>
+(function(){
+const STORAGE_KEY='tariq_world_beautiful_v1';
+const levels=[
+ {name:'المستوى الأول: مستكشف صغير',badge:'🥉',badgeName:'الشارة البرونزية',type:'صح أم خطأ',questions:[
+  {q:'تعبر الأزياء التقليدية عن ثقافات الشعوب المختلفة.',opts:['صح','خطأ'],a:0,why:'الأزياء التقليدية من مظاهر ثقافة الشعوب وتعبّر عن هويتها.'},
+  {q:'شاهد طارق أشخاصًا من بلدان مختلفة في المهرجان.',opts:['صح','خطأ'],a:0,why:'ذهب طارق مع والده إلى مهرجان عالمي وشاهد أشخاصًا من بلدان مختلفة.'},
+  {q:'اختلاف الثقافات يجعل العالم أقل جمالًا.',opts:['صح','خطأ'],a:1,why:'التنوع واحترام اختلاف الثقافات يسهمان في جعل العالم أجمل.'},
+  {q:'شاهد طارق منتجات تقليدية في المهرجان.',opts:['صح','خطأ'],a:0,why:'شاهد طارق أزياء ومصنوعات تقليدية متنوعة.'},
+  {q:'الملابس الغربية والأزياء العربية التقليدية متطابقة تمامًا.',opts:['صح','خطأ'],a:1,why:'لاحظ طارق اختلافًا بين الملابس الغربية البسيطة والأزياء العربية التقليدية.'}
+ ]},
+ {name:'المستوى الثاني: رحالة الثقافات',badge:'🥈',badgeName:'الشارة الفضية',type:'اختر الإجابة الصحيحة',questions:[
+  {q:'لماذا كانت أزياء الأشخاص في المهرجان مختلفة؟',opts:['لأنهم من بلدان وثقافات مختلفة','لأنهم في مدرسة مختلفة','لأنهم يمارسون الرياضة'],a:0,why:'تنوع الأزياء مرتبط باختلاف البلدان والثقافات.'},
+  {q:'أي مما يلي يُعد من مظاهر الثقافة الإفريقية التي شاهدها طارق؟',opts:['الألعاب الإلكترونية','المشغولات اليدوية والأقمشة المزخرفة','السيارات الحديثة'],a:1,why:'شاهد طارق مشغولات يدوية ذات ألوان زاهية وملابس من أقمشة مزخرفة.'},
+  {q:'أي مما يلي يُعد من المشغولات اليدوية التي شاهدها طارق؟',opts:['الأجهزة الإلكترونية الحديثة','الأدوات المدرسية','الأقنعة الخشبية والمشغولات المزخرفة'],a:2,why:'الأقنعة الخشبية والمشغولات المزخرفة من المنتجات اليدوية.'},
+  {q:'ماذا شاهد طارق في الجناح الآسيوي؟',opts:['أزياء ومنتجات تقليدية مميزة','أدوات رياضية فقط','سيارات وأجهزة إلكترونية فقط'],a:0,why:'رأى منتجات من الصين واليابان وكوريا وأزياء تقليدية مميزة.'},
+  {q:'أي من الآتي يُعد من الأزياء العربية التقليدية الواردة في الدرس؟',opts:['البدلة الرياضية','الثوب الأبيض والغترة','ملابس السباحة'],a:1,why:'لاحظ طارق الثوب الأبيض والغترة ضمن الأزياء العربية التقليدية.'},
+  {q:'ما الذي يجعل العالم أجمل وفقًا لفكرة الدرس؟',opts:['أن تكون جميع الثقافات متشابهة','عدم احترام الاختلاف','اختلاف الثقافات واحترامها'],a:2,why:'لكل ثقافة عاداتها وتقاليدها، واحترام هذا التنوع يجعل العالم أجمل.'}
+ ]},
+ {name:'المستوى الثالث: سفير التنوع',badge:'🥇',badgeName:'الشارة الذهبية',type:'تحدي التفكير',questions:[
+  {q:'لماذا من المهم أن نحترم اختلاف الثقافات والعادات؟ اكتب إجابتك في جملة أو جملتين.',open:true,keywords:['احترام','اختلاف','ثقاف','تنوع','العالم','أجمل','عادات','تقاليد','تعايش','نتعلم'],why:'إجابة قوية تذكر أن احترام الاختلاف يساعد الناس على التعايش والتعلم من بعضهم، ويجعل العالم أجمل.'},
+  {q:'اذكر مثالًا واحدًا من الرحلة على مظهر ثقافي، واشرح ماذا نتعلم منه.',open:true,keywords:['إفريقي','آسيوي','عربي','أزياء','الثوب','الغترة','مشغولات','أقمشة','الصين','اليابان','كوريا','ثقافة','احترام'],why:'يمكن ذكر الأزياء العربية مثل الثوب الأبيض والغترة، أو المشغولات الإفريقية، أو المنتجات والأزياء الآسيوية، مع توضيح احترام الثقافات.'}
+ ]}
+];
+let state={name:'',studentClass:'',gender:'',score:0,correct:0,streak:0,bestStreak:0,level:0,index:0,levelPoints:[0,0,0],levelAnswered:[0,0,0],earned:[false,false,false],answered:false,done:false,history:[]};
+const $=id=>document.getElementById(id);
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));$('saveStatus').textContent='💾 تم حفظ تقدمك تلقائيًا';}catch(e){$('saveStatus').textContent='ℹ️ لا يمكن الحفظ في هذا المتصفح؛ يمكنك متابعة اللعب.'}}
+function syncProfileForm(){ $('studentName').value=state.name||''; $('studentClass').value=state.studentClass||''; $('studentGender').value=state.gender||''; }
+function load(){try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){const s=JSON.parse(raw);if(s&&Array.isArray(s.levelPoints)&&s.levelPoints.length===3)state={...state,...s};}}catch(e){} syncProfileForm();}
+function updateStats(){
+ $('score').textContent=state.score;$('correctCount').textContent=state.correct;$('streak').textContent=state.streak;
+ state.earned.forEach((v,i)=>$('badge'+(i+1)).classList.toggle('earned',v));
+ const total=levels.reduce((n,l)=>n+l.questions.length,0),answered=state.levelAnswered.reduce((a,b)=>a+b,0);
+ $('overallProgress').style.width=(answered/total*100)+'%';
+ $('overallText').textContent=state.done?'اكتملت الرحلة! أحسنت يا سفير التنوع.':`أنجزت ${answered} من ${total} سؤالًا`;
+}
+function showOnly(id){['welcome','questionArea','levelComplete','finishView'].forEach(x=>$(x).classList.toggle('hidden',x!==id));}
+function begin(){if(state.done){showFinish();return}showOnly('questionArea');renderQuestion();}
+function renderQuestion(){
+ const l=levels[state.level],q=l.questions[state.index];state.answered=false;
+ $('levelTag').textContent=l.name;$('questionCount').textContent=`السؤال ${state.index+1} من ${l.questions.length}`;
+ $('questionProgress').style.width=((state.index/l.questions.length)*100)+'%';$('questionText').textContent=q.q;
+ $('choiceArea').innerHTML='';$('openAnswer').value='';$('openAnswer').classList.toggle('hidden',!q.open);$('choiceArea').classList.toggle('hidden',!!q.open);
+ $('feedback').className='feedback';$('feedback').innerHTML='';$('checkBtn').classList.remove('hidden');$('nextBtn').classList.add('hidden');
+ if(!q.open){q.opts.forEach((o,i)=>{const b=document.createElement('button');b.type='button';b.className='choice';b.innerHTML=`<span class="letter">${['أ','ب','ج','د'][i]}</span><span>${o}</span>`;b.addEventListener('click',()=>{if(state.answered)return;document.querySelectorAll('.choice').forEach(c=>c.classList.remove('selected'));b.classList.add('selected');b.dataset.choice=i;});$('choiceArea').appendChild(b);});}
+}
+function checkAnswer(){
+ if(state.answered)return;const q=levels[state.level].questions[state.index];let isCorrect=false;
+ if(q.open){const ans=$('openAnswer').value.trim();if(ans.length<8){$('feedback').className='feedback show try';$('feedback').innerHTML='✍️ اكتب إجابة قصيرة من فضلك، وفكّر في احترام الثقافات المختلفة.';return;}
+ const lower=ans.toLowerCase();const hits=q.keywords.filter(k=>lower.includes(k.toLowerCase())).length;isCorrect=hits>=2;
+ }else{const selected=document.querySelector('.choice.selected');if(!selected){$('feedback').className='feedback show try';$('feedback').textContent='اختار إجابة الأول يا بطل 😊 أنت تقدر!';return;}isCorrect=Number(selected.dataset.choice)===q.a;
+ }
+ state.answered=true;state.levelAnswered[state.level]++;state.history.push({level:state.level,index:state.index,correct:isCorrect});
+ if(isCorrect){state.score+=10;state.correct++;state.streak++;state.bestStreak=Math.max(state.bestStreak,state.streak);state.levelPoints[state.level]+=10;}
+ else{state.streak=0;}
+ if(!q.open){document.querySelectorAll('.choice').forEach((b,i)=>{b.disabled=true;if(i===q.a)b.classList.add('correct');if(b.classList.contains('selected')&&i!==q.a)b.classList.add('wrong');});}
+ const fb=$('feedback');fb.className='feedback show '+(isCorrect?'good':'try');
+ if(isCorrect){fb.innerHTML=(q.open?'🌟 إجابة رائعة! أحسنت التفكير! +10 نقاط':'🎉 برافو عليك! إجابة صحيحة! +10 نقاط')+`<span class="explain">${q.why}</span>`;}
+ else{fb.innerHTML=(q.open?'💪 محاولة جميلة! جرّب أن تضيف فكرة عن احترام الاختلاف والتنوع.':'❤️ مش مشكلة يا بطل، الغلط فرصة للتعلّم!')+`<span class="explain">${q.why}</span>`;}
+ $('checkBtn').classList.add('hidden');$('nextBtn').classList.remove('hidden');$('nextBtn').textContent=state.index===levels[state.level].questions.length-1?'إنهاء المستوى ←':'السؤال التالي ←';
+ updateStats();save();
+}
+function next(){
+ if(!state.answered)return;
+ if(state.index<levels[state.level].questions.length-1){state.index++;renderQuestion();return;}
+ finishLevel();
+}
+function finishLevel(){
+ const i=state.level, total=levels[i].questions.length*10, points=state.levelPoints[i],ratio=points/total;
+ const passed=ratio>=.8;
+ if(passed)state.earned[i]=true;
+ $('completeEmoji').textContent=passed?levels[i].badge:'💪';
+ $('completeTitle').textContent=passed?'أحسنت! اجتزت المستوى 🎉':'محاولة جيدة! تقدر تعملها 💜';
+ $('completeText').textContent=passed?`حصلت على ${points} من ${total} نقطة. فتحت ${levels[i].badgeName}!`:`حصلت على ${points} من ${total} نقطة. تحتاج إلى 80% لفتح الشارة التالية. راجع التغذية الراجعة وحاول مرة أخرى.`;
+ $('miniAward').innerHTML=passed?`<div style="font-size:52px">${levels[i].badge}</div><strong>${levels[i].badgeName}</strong><p>المستوى: ${levels[i].name}</p>`:`<strong>🌱 كل محاولة بتقوّيك!</strong><p>راجع الإجابات ثم أعد المحاولة لتحصل على الشارة.</p>`;
+ $('continueBtn').textContent=passed?(i===2?'عرض الشهادة 🏆':'المستوى التالي ←'):'إعادة المستوى ↻';
+ showOnly('levelComplete');updateStats();save();
+}
+function continueLevel(){
+ if(!state.earned[state.level]){state.index=0;state.levelPoints[state.level]=0;state.levelAnswered[state.level]=0;state.history=state.history.filter(h=>h.level!==state.level);begin();save();return;}
+ if(state.level<2){state.level++;state.index=0;begin();save();}else{state.done=true;showFinish();save();}
+}
+function showFinish(){
+ showOnly('finishView');
+ const female=state.gender==='female';
+ $('studentNameDisplay').textContent=state.name|| (female?'بطلة العالم':'بطل العالم');
+ $('certificateTitle').textContent=female?'شهادة سفيرة التنوع':'شهادة سفير التنوع';
+ $('certificateIntro').textContent=female?'تُمنح هذه الشهادة للبطلة':'تُمنح هذه الشهادة للبطل';
+ $('certificateBody').textContent=female?'تقديرًا لإتمام رحلة «كيف يصبح العالم أجمل؟» وإظهار فهمها لأهمية احترام الثقافات والتنوع.':'تقديرًا لإتمام رحلة «كيف يصبح العالم أجمل؟» وإظهار فهمه لأهمية احترام الثقافات والتنوع.';
+ $('studentClassDisplay').textContent=state.studentClass?'الفصل: '+state.studentClass:'';
+ $('finalScoreText').textContent=`مجموع النقاط: ${state.score} • الشارات: ${state.earned.filter(Boolean).length} من 3`;updateStats();
+}
+function reset(){
+ if(!confirm('هل تريد بدء الرحلة من البداية؟ سيتم مسح التقدم المحفوظ على هذا الجهاز.'))return;
+ try{localStorage.removeItem(STORAGE_KEY)}catch(e){}
+ state={name:'',studentClass:'',gender:'',score:0,correct:0,streak:0,bestStreak:0,level:0,index:0,levelPoints:[0,0,0],levelAnswered:[0,0,0],earned:[false,false,false],answered:false,done:false,history:[]};
+ syncProfileForm();updateStats();showOnly('welcome');$('saveStatus').textContent='💾 تم بدء رحلة جديدة';
+}
+$('profileForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ const name=$('studentName').value.trim(), studentClass=$('studentClass').value.trim(), gender=$('studentGender').value;
+ if(!name||!studentClass||!gender){$('profileStatus').textContent='من فضلك أكمل البيانات الثلاثة.';return;}
+ state.name=name;state.studentClass=studentClass;state.gender=gender;
+ $('profileStatus').textContent='✅ تم حفظ بياناتك! بننقلك للأسئلة دلوقتي.';
+ save();
+ if(state.done){showFinish();}
+ else{
+   begin();
+   setTimeout(function(){
+     const target=$('gamePanel') || $('questionArea');
+     if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+   }, 80);
+ }
+});
+
+$('studentName').value=state.name||'';
+$('studentClass').value=state.studentClass||'';
+$('studentGender').value=state.gender||'';
+$('startBtn').addEventListener('click',()=>{document.getElementById('profilePanel').scrollIntoView({behavior:'smooth',block:'center'});$('studentName').focus();});
+$('welcomeStart').addEventListener('click',()=>{document.getElementById('profilePanel').scrollIntoView({behavior:'smooth',block:'center'});});
+$('checkBtn').addEventListener('click',checkAnswer);$('nextBtn').addEventListener('click',next);$('continueBtn').addEventListener('click',continueLevel);$('resetBtn').addEventListener('click',reset);$('againBtn').addEventListener('click',reset);$('printBtn').addEventListener('click',()=>window.print());
+load();updateStats();
+if(state.done)showFinish();else if(state.levelAnswered.some(n=>n>0)||state.score>0){$('welcome').innerHTML=`<div class="big">👋</div><h3>أهلًا بعودتك يا بطل!</h3><p class="muted">لقينا تقدمك المحفوظ: ${state.score} نقطة. كمل رحلتك من حيث توقفت.</p><button class="btn primary" id="resumeBtn">تابع الرحلة</button>`;$('resumeBtn').addEventListener('click',begin);}
+})();
+</script>
+</body>
+</html>
